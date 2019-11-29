@@ -1,0 +1,69 @@
+
+version: '3'
+services:
+     es-master:
+       image:  elasticsearch:6.4.3
+       container_name: es-master
+       restart: always
+       volumes:
+         - ./master/data:/usr/share/elasticsearch/data:rw
+         - ./master/conf/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+         - ./master/logs:/user/share/elasticsearch/logs:rw
+       ports:
+         - "9200:9200"
+         - "9300:9300"
+
+     es-node1:
+       image:  elasticsearch:6.4.3
+       container_name: es-node1
+       restart: always
+       volumes:
+         - ./node1/data:/usr/share/elasticsearch/data:rw
+         - ./node1/conf/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+         - ./node1/logs:/user/share/elasticsearch/logs:rw
+       ports:
+         - "9201:9201"
+         - "9301:9301"
+
+     es-node2:
+       image:  elasticsearch:6.4.3
+       container_name: es-node2
+       restart: always
+       volumes:
+         - ./node2/data:/usr/share/elasticsearch/data:rw
+         - ./node2/conf/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+         - ./node2/logs:/user/share/elasticsearch/logs:rw
+       ports:
+         - "9202:9202"
+         - "9302:9302"
+
+     es-node3:
+       image:  elasticsearch:6.4.3
+       container_name: es-node3
+       restart: always
+       volumes:
+         - ./node3/data:/usr/share/elasticsearch/data:rw
+         - ./node3/conf/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+         - ./node3/logs:/user/share/elasticsearch/logs:rw
+       ports:
+         - "9203:9203"
+         - "9303:9303"
+
+     es-node4:
+       image:  elasticsearch:6.4.3
+       container_name: es-node4
+       restart: always
+       volumes:
+         - ./node4/data:/usr/share/elasticsearch/data:rw
+         - ./node4/conf/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+         - ./node4/logs:/user/share/elasticsearch/logs:rw
+       ports:
+         - "9204:9204"
+         - "9304:9304"
+
+     es-head:
+       image: tobias74/elasticsearch-head:6
+       container_name: es-head
+       restart: always
+       ports:
+       - "9100:9100"

@@ -1,0 +1,13 @@
+
+
+cluster.name: "es-cluster"
+node.name: node3
+node.master: false
+node.data: true
+network.host: 0.0.0.0
+http.port: 9203
+transport.tcp.port: 9303
+discovery.zen.ping.unicast.hosts: ["10.10.10.23:9300", "10.10.10.23:9301", "10.10.10.23:9302", "10.10.10.23:9303", "10.10.10.23:9304"]
+path.logs: /usr/share/elasticsearch/logs
+
+
